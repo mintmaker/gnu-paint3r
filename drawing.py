@@ -99,7 +99,7 @@ class Drawing:
         else:
             self.drawing_draw_brush_size(mouse_pos, brushsize, color)
 
-    def drawing_fill(self, mouse_pos, color, brushsize):  # hardest part, needs to be implemented later
+    def drawing_fill(self, mouse_pos, color, brushsize):
 
         f_color = self.drawing[mouse_pos].copy()
         self.drawing[mouse_pos] = color
@@ -288,7 +288,6 @@ class Drawing:
     def draw(self, mouse_pos):
         self.shown_drawing = self.drawing
         self.shown_drawing[self.shown_drawing == -1] = 255
-        # self.showed_drawing = Image.fromarray(self.showed_drawing, 'RGB').resize((1200,1200))
         self.window.blit(pygame.transform.scale(pygame.surfarray.make_surface(self.shown_drawing),
                                                 ((self.size[0] * self.zoom_factor), (self.size[1] * self.zoom_factor))),
                          self.rect[:2])
